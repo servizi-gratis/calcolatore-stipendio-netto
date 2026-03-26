@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calcolatore Stipendio Netto Italia da RAL | Netto Annuale e Mensile</title>
+  <meta name="description" content="Calcolatore stipendio netto Italia: stima il netto annuo e mensile a partire dalla RAL con IRPEF progressiva semplificata, contributi e addizionale regionale stimata." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="author" content="TUO BRAND" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <link rel="canonical" href="https://servizi-gratis.github.io/calcolatore-stipendio-netto/" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="./site.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="Calcolatore Stipendio Netto Italia da RAL" />
+  <meta property="og:description" content="Stima il netto annuo e mensile da RAL in Italia con un calcolo semplice, veloce e responsive." />
+  <meta property="og:url" content="https://servizi-gratis.github.io/calcolatore-stipendio-netto/" />
+  <meta property="og:site_name" content="TUO BRAND" />
+  <meta property="og:image" content="https://servizi-gratis.github.io/calcolatore-stipendio-netto/og-image.svg" />
+  <meta property="og:image:alt" content="Anteprima del calcolatore stipendio netto Italia" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calcolatore Stipendio Netto Italia da RAL" />
+  <meta name="twitter:description" content="Calcola il netto annuo e mensile a partire dalla RAL con una stima semplificata per l'Italia." />
+  <meta name="twitter:image" content="https://servizi-gratis.github.io/calcolatore-stipendio-netto/og-image.svg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calcolatore Stipendio Netto Italia",
+    "url": "https://servizi-gratis.github.io/calcolatore-stipendio-netto/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "Calcolatore online per stimare lo stipendio netto annuo e mensile da RAL in Italia.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TUO BRAND"
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,0.08);
+      --panel-strong: rgba(255,255,255,0.12);
+      --text: #e5eefc;
+      --muted: #a8b3c7;
+      --line: rgba(255,255,255,0.12);
+      --accent: #60a5fa;
+      --accent-2: #22c55e;
+      --danger: #f97316;
+      --shadow: 0 20px 60px rgba(2, 6, 23, 0.35);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(34,197,94,0.12), transparent 30%),
+        linear-gradient(180deg, #0b1220 0%, #101827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+
+    .hero{
+      padding: 48px 0 24px;
+    }
+
+    .hero-card,
+    .card,
+    .faq-item,
+    .info-box{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card{
+      padding: 28px;
+      display:grid;
+      gap: 18px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      width: fit-content;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(96,165,250,0.30);
+      background: rgba(96,165,250,0.10);
+      color: #cfe3ff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    h1, h2, h3{
+      margin: 0 0 12px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h1{
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      max-width: 14ch;
+    }
+
+    h2{
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+    }
+
+    p{
+      margin:0 0 14px;
+      color: var(--muted);
+    }
+
+    .hero-grid{
+      display:grid;
+      gap: 22px;
+      align-items: start;
+      grid-template-columns: 1.1fr 0.9fr;
+      margin-top: 28px;
+    }
+
+    .card{
+      padding: 24px;
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .field.full{
+      grid-column: 1 / -1;
+    }
+
+    label{
+      font-weight: 600;
+      color: #d9e6fb;
+      font-size: 0.96rem;
+    }
+
+    input, select, button{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(15,23,42,0.72);
+      color: var(--text);
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    input:focus, select:focus{
+      border-color: rgba(96,165,250,0.8);
+      box-shadow: 0 0 0 4px rgba(96,165,250,0.16);
+    }
+
+    button{
+      cursor:pointer;
+      font-weight:700;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border:none;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    button:hover{
+      transform: translateY(-1px);
+    }
+
+    button.secondary{
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow: none;
+    }
+
+    .button-row{
+      display:grid;
+      gap:12px;
+      grid-template-columns: 1fr auto;
+      align-items:end;
+    }
+
+    .result-wrap{
+      display:grid;
+      gap:16px;
+    }
+
+    .result-hero{
+      padding: 20px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(34,197,94,0.16), rgba(96,165,250,0.18));
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .result-label{
+      display:block;
+      color:#d7fbe4;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    .result-value{
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1;
+      color:#f8fffb;
+      letter-spacing: -0.03em;
+    }
+
+    .mini-grid{
+      display:grid;
+      gap:12px;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .mini-stat{
+      padding:16px;
+      border-radius:18px;
+      background: rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.10);
+    }
+
+    .mini-stat strong{
+      display:block;
+      font-size: 1.15rem;
+      color:#fff;
+      margin-top:6px;
+    }
+
+    .breakdown{
+      display:grid;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:flex-start;
+      padding-bottom:12px;
+      border-bottom:1px dashed rgba(255,255,255,0.10);
+    }
+
+    .row:last-child{ border-bottom:none; padding-bottom:0; }
+    .row span:first-child{ color: var(--muted); }
+    .row span:last-child{ font-weight:700; color: #fff; text-align:right; }
+
+    .section{
+      padding: 18px 0 8px;
+    }
+
+    .seo-content{
+      display:grid;
+      gap:20px;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      margin-top: 22px;
+    }
+
+    .info-box{
+      padding:22px;
+    }
+
+    ul.clean{
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .faq{
+      display:grid;
+      gap:14px;
+      margin: 22px 0 44px;
+    }
+
+    .faq-item{
+      padding: 18px 20px;
+    }
+
+    .faq-item h3{
+      font-size:1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .disclaimer{
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #c9d5e9;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(249,115,22,0.08);
+      border:1px solid rgba(249,115,22,0.20);
+    }
+
+    footer{
+      padding: 28px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .badge-list{
+      display:flex;
+      flex-wrap: wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .badge{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      color: #dce8fa;
+      font-size:0.9rem;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid, .seo-content{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero{ padding-top: 24px; }
+      .hero-card, .card, .info-box, .faq-item{ padding: 18px; border-radius: 20px; }
+      .form-grid, .mini-grid, .button-row{ grid-template-columns: 1fr; }
+      .result-value{ font-size: 2.3rem; }
+      .container{ width:min(calc(100% - 20px), var(--max)); }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <span class="eyebrow">Calcolo netto da RAL • Italia</span>
+          <div>
+            <h1>Calcolatore stipendio netto Italia</h1>
+            <p>Stima il tuo stipendio netto annuo e mensile partendo dalla RAL. Il tool usa una logica semplificata con IRPEF progressiva, contributi lavoratore e addizionale regionale stimata per darti un valore rapido, leggibile e utile per confronti immediati.</p>
+          </div>
+          <div class="badge-list">
+            <span class="badge">Mobile-first</span>
+            <span class="badge">Nessuna libreria esterna</span>
+            <span class="badge">GitHub Pages ready</span>
+            <span class="badge">SEO base inclusa</span>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <section class="card" aria-labelledby="titolo-calcolatore">
+            <h2 id="titolo-calcolatore">Calcola il netto</h2>
+            <p>Inserisci i dati principali. Il risultato è una stima indicativa, non una busta paga ufficiale.</p>
+
+            <form id="salaryForm" class="grid" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="ral">RAL lorda annua (€)</label>
+                  <input id="ral" name="ral" type="number" min="5000" step="100" inputmode="decimal" placeholder="Es. 32000" required />
+                </div>
+
+                <div class="field">
+                  <label for="region">Regione</label>
+                  <select id="region" name="region" required>
+                    <option value="0.0123">Abruzzo</option>
+                    <option value="0.0123">Basilicata</option>
+                    <option value="0.0123">Calabria</option>
+                    <option value="0.0123">Campania</option>
+                    <option value="0.0123">Emilia-Romagna</option>
+                    <option value="0.0123">Friuli-Venezia Giulia</option>
+                    <option value="0.0173">Lazio</option>
+                    <option value="0.0123">Liguria</option>
+                    <option value="0.0123">Lombardia</option>
+                    <option value="0.0123">Marche</option>
+                    <option value="0.0123">Molise</option>
+                    <option value="0.0123">Piemonte</option>
+                    <option value="0.0123">Puglia</option>
+                    <option value="0.0123">Sardegna</option>
+                    <option value="0.0123">Sicilia</option>
+                    <option value="0.0123">Toscana</option>
+                    <option value="0.0123">Trentino-Alto Adige</option>
+                    <option value="0.0123">Umbria</option>
+                    <option value="0.0123">Valle d'Aosta</option>
+                    <option value="0.0123">Veneto</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="contract">Tipo contratto</label>
+                  <select id="contract" name="contract" required>
+                    <option value="0.0919">Dipendente standard</option>
+                    <option value="0.0949">Dipendente contributi alti</option>
+                    <option value="0.0584">Apprendistato</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="months">Numero mensilità</label>
+                  <select id="months" name="months" required>
+                    <option value="12">12 mensilità</option>
+                    <option value="13">13 mensilità</option>
+                    <option value="14">14 mensilità</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <div class="button-row">
+                    <button type="submit">Calcola</button>
+                    <button type="button" class="secondary" id="resetBtn">Reset</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <p class="disclaimer">
+              Nota: il calcolo è una stima semplificata. Non include tutti i possibili casi particolari, bonus, detrazioni comunali, carichi familiari, ex bonus Renzi, fringe benefit, welfare aziendale o specifiche eccezioni contributive.
+            </p>
+          </section>
+
+          <aside class="card" aria-live="polite">
+            <div class="result-wrap">
+              <div class="result-hero">
+                <span class="result-label">Stipendio netto annuo stimato</span>
+                <div class="result-value" id="annualNet">€ 0</div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-stat">
+                  Netto mensile
+                  <strong id="monthlyNet">€ 0</strong>
+                </div>
+                <div class="mini-stat">
+                  Aliquota effettiva stimata
+                  <strong id="effectiveRate">0%</strong>
+                </div>
+              </div>
+
+              <div class="breakdown">
+                <div class="row">
+                  <span>RAL inserita</span>
+                  <span id="grossSalary">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>Contributi lavoratore stimati</span>
+                  <span id="employeeContrib">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>Imponibile fiscale stimato</span>
+                  <span id="taxableIncome">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>IRPEF lorda stimata</span>
+                  <span id="grossIrpef">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>Detrazione lavoro dipendente stimata</span>
+                  <span id="employeeDeduction">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>Addizionale regionale stimata</span>
+                  <span id="regionalTax">€ 0</span>
+                </div>
+                <div class="row">
+                  <span>Mensilità</span>
+                  <span id="salaryMonths">12</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Come funziona il calcolo del netto da RAL</h2>
+        <p>Il calcolatore applica un modello semplice, pensato per dare una stima rapida dello stipendio netto in Italia. Prima vengono sottratti i contributi a carico del lavoratore, poi si calcola l'IRPEF per scaglioni sull'imponibile residuo, si applica una detrazione da lavoro dipendente semplificata e infine si sottrae un'addizionale regionale stimata.</p>
+
+        <div class="seo-content">
+          <div class="info-box">
+            <h3>Cosa considera</h3>
+            <ul class="clean">
+              <li>RAL annua lorda inserita dall'utente</li>
+              <li>Contributi lavoratore stimati tra circa 5,84% e 9,49%</li>
+              <li>IRPEF progressiva semplificata per scaglioni</li>
+              <li>Detrazione lavoro dipendente stimata</li>
+              <li>Addizionale regionale indicativa</li>
+              <li>Ripartizione del netto su 12, 13 o 14 mensilità</li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Cosa non considera</h3>
+            <ul class="clean">
+              <li>Addizionale comunale puntuale</li>
+              <li>Bonus fiscali specifici e misure temporanee</li>
+              <li>Carichi familiari e situazioni personali</li>
+              <li>Dettagli da CCNL, welfare e premi</li>
+              <li>Agevolazioni territoriali o settoriali speciali</li>
+              <li>Casi complessi di part-time, apprendistato avanzato o fringe benefit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Come si calcola lo stipendio netto dalla RAL?</h3>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">In modo semplificato, si parte dalla RAL, si sottraggono i contributi a carico del lavoratore, si applica l'IRPEF per scaglioni sull'imponibile fiscale, poi si considerano detrazioni e addizionali stimate per ottenere il netto annuo e quello mensile.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Il risultato è preciso come una busta paga?</h3>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">No. È una stima utile per confronti rapidi, orientamento personale o negoziazione stipendiale. La busta paga reale dipende da contratto, aliquote effettive, addizionali locali, detrazioni personali, benefit e altre variabili.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+            <h3 itemprop="name">È utile scegliere regione e mensilità?</h3>
+            <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Sì. La regione incide in modo indicativo tramite l'addizionale regionale stimata, mentre 12, 13 o 14 mensilità cambiano la distribuzione del netto durante l'anno anche a parità di netto annuo complessivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Strumento Gratuito</p>
+    </div>
+  </footer>
+
+  <script>
+    const euro = new Intl.NumberFormat('it-IT', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    });
+
+    const percent = new Intl.NumberFormat('it-IT', {
+      style: 'percent',
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1
+    });
+
+    const form = document.getElementById('salaryForm');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const annualNetEl = document.getElementById('annualNet');
+    const monthlyNetEl = document.getElementById('monthlyNet');
+    const effectiveRateEl = document.getElementById('effectiveRate');
+    const grossSalaryEl = document.getElementById('grossSalary');
+    const employeeContribEl = document.getElementById('employeeContrib');
+    const taxableIncomeEl = document.getElementById('taxableIncome');
+    const grossIrpefEl = document.getElementById('grossIrpef');
+    const employeeDeductionEl = document.getElementById('employeeDeduction');
+    const regionalTaxEl = document.getElementById('regionalTax');
+    const salaryMonthsEl = document.getElementById('salaryMonths');
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function calculateIrpef(income) {
+      if (income <= 0) return 0;
+
+      let tax = 0;
+      if (income <= 28000) {
+        tax = income * 0.23;
+      } else if (income <= 50000) {
+        tax = (28000 * 0.23) + ((income - 28000) * 0.33);
+      } else {
+        tax = (28000 * 0.23) + (22000 * 0.33) + ((income - 50000) * 0.43);
+      }
+      return tax;
+    }
+
+    // Detrazione semplificata da lavoro dipendente.
+    function calculateEmployeeDeduction(income) {
+      if (income <= 0) return 0;
+
+      let deduction = 0;
+
+      if (income <= 15000) {
+        deduction = 1955;
+      } else if (income <= 28000) {
+        deduction = 1910 + (1190 * ((28000 - income) / 13000));
+      } else if (income <= 50000) {
+        deduction = 1910 * ((50000 - income) / 22000);
+      } else {
+        deduction = 0;
+      }
+
+      return Math.max(0, deduction);
+    }
+
+    function updateResult(data) {
+      annualNetEl.textContent = euro.format(data.netAnnual);
+      monthlyNetEl.textContent = euro.format(data.netMonthly);
+      effectiveRateEl.textContent = percent.format(data.effectiveRate);
+
+      grossSalaryEl.textContent = euro.format(data.ral);
+      employeeContribEl.textContent = euro.format(data.contributions);
+      taxableIncomeEl.textContent = euro.format(data.taxableIncome);
+      grossIrpefEl.textContent = euro.format(data.grossIrpef);
+      employeeDeductionEl.textContent = euro.format(data.employeeDeduction);
+      regionalTaxEl.textContent = euro.format(data.regionalTax);
+      salaryMonthsEl.textContent = String(data.months);
+    }
+
+    function runCalculation() {
+      const ral = Number(document.getElementById('ral').value);
+      const regionRate = Number(document.getElementById('region').value);
+      const contractRate = Number(document.getElementById('contract').value);
+      const months = Number(document.getElementById('months').value);
+
+      if (!ral || ral < 5000) {
+        alert('Inserisci una RAL valida, almeno pari a 5.000 euro.');
+        return;
+      }
+
+      const contributions = ral * contractRate;
+      const taxableIncome = Math.max(0, ral - contributions);
+      const grossIrpef = calculateIrpef(taxableIncome);
+      const employeeDeduction = calculateEmployeeDeduction(taxableIncome);
+      const netIrpef = Math.max(0, grossIrpef - employeeDeduction);
+      const regionalTax = taxableIncome * regionRate;
+      const netAnnual = Math.max(0, ral - contributions - netIrpef - regionalTax);
+      const netMonthly = netAnnual / months;
+      const effectiveRate = 1 - (netAnnual / ral);
+
+      updateResult({
+        ral,
+        contributions,
+        taxableIncome,
+        grossIrpef,
+        employeeDeduction,
+        regionalTax,
+        netAnnual,
+        netMonthly,
+        effectiveRate: clamp(effectiveRate, 0, 1),
+        months
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      runCalculation();
+    });
+
+    resetBtn.addEventListener('click', function () {
+      form.reset();
+      document.getElementById('ral').value = '';
+      updateResult({
+        ral: 0,
+        contributions: 0,
+        taxableIncome: 0,
+        grossIrpef: 0,
+        employeeDeduction: 0,
+        regionalTax: 0,
+        netAnnual: 0,
+        netMonthly: 0,
+        effectiveRate: 0,
+        months: 12
+      });
+    });
+
+    // Esempio iniziale precompilato leggero per miglior UX.
+    document.getElementById('ral').value = 32000;
+    runCalculation();
+  </script>
+</body>
+</html>
