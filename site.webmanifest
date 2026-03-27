@@ -1,17 +1,20 @@
 {
-  "name": "Calcolatore Stipendio Netto Italia",
-  "short_name": "Netto Italia",
-  "description": "Calcolatore stipendio netto da RAL per l'Italia.",
-  "start_url": "./",
+  "name": "Calcolatore Stipendio Netto",
+  "short_name": "Stipendio",
+  "start_url": "/calcolatore-stipendio-netto/",
   "display": "standalone",
-  "background_color": "#0b1220",
-  "theme_color": "#0f172a",
+  "background_color": "#081122",
+  "theme_color": "#0ea5e9",
   "icons": [
     {
-      "src": "./favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "src": "/calcolatore-stipendio-netto/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/calcolatore-stipendio-netto/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
